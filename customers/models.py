@@ -16,3 +16,7 @@ class Customer(AbstractUser):
 
     def __str__(self):
         return '<Customer: {} {}>'.format(self.first_name, self.last_name)
+
+    @property
+    def full_name(self):
+        return self.get_full_name()

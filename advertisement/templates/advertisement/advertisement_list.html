@@ -1,0 +1,8 @@
+<div>
+  <h1>Classified</h1>
+    <ul>
+        {% for ad in object_list %}
+            <li><a href="{% url 'detail_advertisement' ad.id %}">{{ ad.title }} - {{ ad.city.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

@@ -10,7 +10,7 @@ class AdvertisementInline(admin.StackedInline):
 
 @admin.register(Advertisement)
 class AdvertisementAdmin(admin.ModelAdmin):
-    list_display = ('title', 'date_publication', 'unique_views', 'city', 'customers')
+    list_display = ('title', 'date_publication', 'unique_views', 'city', 'customer')
 
 
 @admin.register(City)
