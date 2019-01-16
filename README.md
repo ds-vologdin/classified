@@ -1,2 +1,8 @@
 # classified
-Example classified aplication.
+Example classified application.
+
+# Run application
+
+```bash
+docker-compose up
+```

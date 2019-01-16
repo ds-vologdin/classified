@@ -1,0 +1,21 @@
+version: "3"
+services:
+  classified:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - "classified.env"
+    depends_on:
+      - "postgres"
+    command: python manage.py runserver 0.0.0.0:8080
+    restart: always
+  postgres:
+    image: postgres
+    env_file:
+      - "postgres.env"
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
