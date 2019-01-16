@@ -23,6 +23,9 @@ class Base(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+
+        'advertisement.apps.AdvertisementConfig',
+        'customers.apps.CustomersConfig',
     ]
 
     MIDDLEWARE = [
@@ -76,6 +79,7 @@ class Base(Configuration):
             'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
         },
     ]
+    AUTH_USER_MODEL = "customers.Customer"
 
     LANGUAGE_CODE = 'en-us'
     TIME_ZONE = 'UTC'

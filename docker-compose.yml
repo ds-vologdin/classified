@@ -2,6 +2,8 @@ version: "3"
 services:
   classified:
     build: .
+    volumes:
+    - .:/usr/src/app/
     ports:
       - "8080:8080"
     env_file:
