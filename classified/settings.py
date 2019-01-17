@@ -24,6 +24,8 @@ class Base(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
 
+        'hitcount',
+
         'advertisement.apps.AdvertisementConfig',
         'customers.apps.CustomersConfig',
     ]

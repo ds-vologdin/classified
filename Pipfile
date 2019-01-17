@@ -10,6 +10,7 @@ django = "*"
 django-configurations = "*"
 django-extensions = "*"
 psycopg2-binary = "*"
+django-hitcount = "*"
 
 [requires]
 python_version = "3.6"

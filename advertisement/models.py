@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.contenttypes.fields import GenericRelation
+
+from hitcount.models import HitCount, HitCountMixin
 
 from customers.models import Customer
 
@@ -10,7 +13,7 @@ class City(models.Model):
         return '<City: {}>'.format(self.name)
 
 
-class Advertisement(models.Model):
+class Advertisement(HitCountMixin, models.Model):
     ORDER_TYPE = (
         ('buy', 'Buy'),
         ('sell', 'Sell'),
@@ -26,6 +29,9 @@ class Advertisement(models.Model):
     order_type = models.CharField(
         max_length=4, choices=ORDER_TYPE, default='sell'
     )
+    hit_count_generic = GenericRelation(
+        HitCount, object_id_field='object_pk',
+        related_query_name='hit_count_generic_relation')
 
     def __str__(self):
         return '<Ad: {} {}>'.format(self.date_publication, self.title)
