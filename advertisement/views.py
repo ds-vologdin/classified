@@ -6,6 +6,7 @@ from .models import Advertisement
 
 class AdvertisementListView(generic.ListView):
     model = Advertisement
+    paginate_by = 10
 
     def get_queryset(self):
         # Скорее всего будет актуально, такие поля как 'city' лучше джойнить...
