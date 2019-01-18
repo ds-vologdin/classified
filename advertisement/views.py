@@ -9,7 +9,7 @@ class AdvertisementListView(generic.ListView):
 
     def get_queryset(self):
         # Скорее всего будет актуально, такие поля как 'city' лучше джойнить...
-        return Advertisement.objects.select_related('city').all()
+        return Advertisement.objects.select_related('city', 'customer').all()
 
 
 class AdvertisementDetailView(HitCountDetailView):
