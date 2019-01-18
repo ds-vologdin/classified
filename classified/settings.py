@@ -1,5 +1,6 @@
 import os
 
+from django.urls import reverse_lazy
 from configurations import Configuration, values
 
 from .settings_private import DatabaseDevMixin
@@ -81,7 +82,9 @@ class Base(Configuration):
             'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
         },
     ]
-    AUTH_USER_MODEL = "customers.Customer"
+    AUTH_USER_MODEL = 'customers.Customer'
+    LOGIN_REDIRECT_URL = reverse_lazy('list_advertisements')
+    LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
     LANGUAGE_CODE = 'en-us'
     TIME_ZONE = 'UTC'
