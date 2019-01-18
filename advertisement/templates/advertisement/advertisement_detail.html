@@ -1,25 +1,28 @@
-<div>
-    <h1>Classified</h1>
-    <h2>{{ object.title }}</h2>
-    <div>type: {{ object.order_type }}</div>
-    <div>date: {{ object.date_publication }}</div>
-    <div>description: {{ object.description }}</div>
-    <div>city: {{ object.city.name }}</div>
-    <div>customer: {{ object.customer.full_name }}</div>
-    <div>total hits: {{ object.hit_count.hits }}</div>
+{% extends "base.html" %}
 
-    <h2>Hitcount Info</h2>
-    <dl class="dl-horizontal">
-      <dt>Total Hits:</dt>
-      <dd>{{ hitcount.total_hits }}</dd>
-      <dt>The unique PK is:</dt>
-      <dd>{{ hitcount.pk }}</dd>
-      <dt>Hit counted?</dt>
-      <dd id="hit-counted">
-        <i id="hit-counted-value">{{ hitcount.hit_counted }}</i>
-      </dd>
-      <dt>Hit response:</dt>
-      <dd id="hit-response">{{ hitcount.hit_message }}</dd>
-      </dd>
-    </dl>
-</div>
+{% block main %}
+    <div>
+        <h2>{{ object.title }}</h2>
+        <div>type: {{ object.order_type }}</div>
+        <div>date: {{ object.date_publication }}</div>
+        <div>description: {{ object.description }}</div>
+        <div>city: {{ object.city.name }}</div>
+        <div>customer: {{ object.customer.full_name }}</div>
+        <div>total hits: {{ object.hit_count.hits }}</div>
+
+        <h2>Hitcount Info</h2>
+        <dl class="dl-horizontal">
+          <dt>Total Hits:</dt>
+          <dd>{{ hitcount.total_hits }}</dd>
+          <dt>The unique PK is:</dt>
+          <dd>{{ hitcount.pk }}</dd>
+          <dt>Hit counted?</dt>
+          <dd id="hit-counted">
+            <i id="hit-counted-value">{{ hitcount.hit_counted }}</i>
+          </dd>
+          <dt>Hit response:</dt>
+          <dd id="hit-response">{{ hitcount.hit_message }}</dd>
+          </dd>
+        </dl>
+    </div>
+{% endblock main %}
