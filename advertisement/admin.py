@@ -4,13 +4,16 @@ from .models import Advertisement
 from .models import City
 
 
-class AdvertisementInline(admin.StackedInline):
+class AdvertisementInline(admin.TabularInline):
     model = Advertisement
 
 
 @admin.register(Advertisement)
 class AdvertisementAdmin(admin.ModelAdmin):
-    list_display = ('title', 'date_publication', 'unique_views', 'city', 'customer')
+    list_display = ('title', 'date_publication', 'city', 'customer', 'ad_hit_count')
+
+    def ad_hit_count(self, ad):
+        return ad.hit_count.hits
 
 
 @admin.register(City)
