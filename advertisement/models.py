@@ -22,8 +22,6 @@ class Advertisement(HitCountMixin, models.Model):
     title = models.CharField(max_length=200)
     date_publication = models.DateField()
     description = models.TextField()
-    unique_views = models.IntegerField(default=0)
-    total_views = models.IntegerField(default=0)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     order_type = models.CharField(
